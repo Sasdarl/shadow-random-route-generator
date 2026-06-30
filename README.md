@@ -1,4 +1,4 @@
-# shadow-random-route-generator
+# Shadow Random Route Generator
 Route selector and tracker for Shadow the Hedgehog's Library Mode.<br />
 My first Godot project, and the most niche software I have ever designed.
 
