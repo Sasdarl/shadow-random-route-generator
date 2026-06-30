@@ -1,0 +1,396 @@
+[gd_scene format=3 uid="uid://blmvfr3dcn3j5"]
+
+[ext_resource type="Script" uid="uid://b4oo8v61gg02o" path="res://SCR/main_view.gd" id="1_a1dfs"]
+[ext_resource type="Texture2D" uid="uid://b1jrvhqywqqor" path="res://IMG/tex1_512x512_8435a3940c003445_15511e2b7c0d0993_9.png" id="3_hqrwi"]
+[ext_resource type="Texture2D" uid="uid://cbdo3sv7an3ia" path="res://IMG/tex1_512x512_c1a8be3ee037dd86_ddc73227bc7a508f_9.png" id="4_b4u68"]
+[ext_resource type="Script" uid="uid://dcllh1gjsbtsa" path="res://SCR/option_shield.gd" id="5_5p3x0"]
+[ext_resource type="AudioStream" uid="uid://dgx8hcg5qjpd2" path="res://BGM/sng_sys03.ogg" id="6_rsei7"]
+[ext_resource type="Script" uid="uid://5vf8cs3ylgcy" path="res://SCR/audio.gd" id="7_ewg54"]
+[ext_resource type="Theme" uid="uid://cueyy5xonqdjj" path="res://text.tres" id="8_qvmcu"]
+[ext_resource type="Texture2D" uid="uid://l56s3ohrl5dn" path="res://IMG/tex1_256x128_73962f92710e9e9e_402bc18ce903b7a9_9.png" id="9_g2mgs"]
+[ext_resource type="PackedScene" uid="uid://1upyrefn57fu" path="res://SCN/stage_slot.tscn" id="10_b30aj"]
+[ext_resource type="Script" uid="uid://bejblbe48kip6" path="res://SCR/stage_select.gd" id="10_mut7h"]
+[ext_resource type="PackedScene" uid="uid://bbw0d2o822px6" path="res://SCN/boss_slot.tscn" id="11_1tocb"]
+[ext_resource type="PackedScene" uid="uid://bmf2jcqqgw7xd" path="res://SCN/sub_menu.tscn" id="12_judhg"]
+[ext_resource type="Script" uid="uid://ck8nn8x44e3o1" path="res://SCR/route.gd" id="13_pj64n"]
+[ext_resource type="Script" uid="uid://dub88keeie686" path="res://SCR/header.gd" id="14_ltmcj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_834ms"]
+load_path = "res://.godot/imported/tex1_256x128_73962f92710e9e9e_402bc18ce903b7a9_9.png-e557b215a98da58415f28a755ba2e9e0.ctex"
+
+[node name="Base" type="Node2D" unique_id=82072265]
+script = ExtResource("1_a1dfs")
+metadata/_edit_vertical_guides_ = [0.0, 1280.0, 1280.0]
+metadata/_edit_horizontal_guides_ = [1056.0, 0.0, 1056.0, 1056.0]
+
+[node name="Background" type="Node2D" parent="." unique_id=1293926037]
+
+[node name="Background 1" type="Sprite2D" parent="Background" unique_id=618285296]
+z_index = -5
+scale = Vector2(2.4999998, 2.1999998)
+texture = ExtResource("3_hqrwi")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 512, 480)
+
+[node name="Over Background" type="Sprite2D" parent="Background" unique_id=426049875]
+z_index = -5
+scale = Vector2(1.9999999, 2.1999998)
+texture = ExtResource("4_b4u68")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 431, 200)
+
+[node name="Background 2" type="Sprite2D" parent="Background" unique_id=1506096363]
+modulate = Color(1, 1, 1, 0.3137255)
+z_index = -5
+position = Vector2(0, 968)
+rotation = -1.5707964
+scale = Vector2(2.15, 3.7)
+texture = ExtResource("4_b4u68")
+centered = false
+flip_h = true
+flip_v = true
+region_enabled = true
+region_rect = Rect2(0, 385, 432, 49)
+region_filter_clip_enabled = true
+
+[node name="Audio" type="Node2D" parent="." unique_id=764956550]
+position = Vector2(189, 251)
+
+[node name="Shield" type="Panel" parent="Audio" unique_id=1625935040]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+offset_right = 113.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("5_5p3x0")
+
+[node name="BGM Player" type="AudioStreamPlayer" parent="Audio" unique_id=1214256470]
+stream = ExtResource("6_rsei7")
+volume_db = -5.0
+playback_type = 1
+parameters/looping = true
+
+[node name="BGM Toggle" type="Node2D" parent="Audio" unique_id=1072202898]
+z_index = 5
+position = Vector2(85, 26)
+script = ExtResource("7_ewg54")
+
+[node name="BGM Label" type="RichTextLabel" parent="Audio/BGM Toggle" unique_id=449613336]
+offset_left = -120.99994
+offset_top = -19.0
+offset_right = -13.592773
+offset_bottom = 20.0
+scale = Vector2(0.81, 1)
+mouse_filter = 2
+theme = ExtResource("8_qvmcu")
+text = "BGM"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite ON" type="Sprite2D" parent="Audio/BGM Toggle" unique_id=2018011480]
+visible = false
+scale = Vector2(1.99, 2.2)
+texture = ExtResource("9_g2mgs")
+region_enabled = true
+region_rect = Rect2(196, 1, 25, 24)
+
+[node name="Sprite OFF" type="Sprite2D" parent="Audio/BGM Toggle" unique_id=1544938855]
+scale = Vector2(1.99, 2.2)
+texture = SubResource("CompressedTexture2D_834ms")
+vframes = 4
+region_enabled = true
+region_rect = Rect2(222, 2, 26, 87)
+
+[node name="Panel" type="Panel" parent="Audio/BGM Toggle" unique_id=1932457138]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -7.666666
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.9999998, 1.9999999)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="SFX Toggle" type="Node2D" parent="Audio" unique_id=1808755828]
+z_index = 6
+position = Vector2(85, 73)
+script = ExtResource("7_ewg54")
+
+[node name="SFX Label" type="RichTextLabel" parent="Audio/SFX Toggle" unique_id=1421136323]
+offset_left = -120.99994
+offset_top = -19.0
+offset_right = -13.592773
+offset_bottom = 20.0
+scale = Vector2(0.81, 1)
+mouse_filter = 2
+theme = ExtResource("8_qvmcu")
+text = "SFX"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 2
+
+[node name="Sprite ON" type="Sprite2D" parent="Audio/SFX Toggle" unique_id=1527934256]
+visible = false
+scale = Vector2(1.99, 2.2)
+texture = ExtResource("9_g2mgs")
+region_enabled = true
+region_rect = Rect2(196, 1, 25, 24)
+
+[node name="Sprite OFF" type="Sprite2D" parent="Audio/SFX Toggle" unique_id=1172116162]
+scale = Vector2(1.99, 2.2)
+texture = SubResource("CompressedTexture2D_834ms")
+vframes = 4
+region_enabled = true
+region_rect = Rect2(222, 2, 26, 87)
+
+[node name="Panel" type="Panel" parent="Audio/SFX Toggle" unique_id=853189785]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -7.666666
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.9999998, 1.9999999)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Stage Select" type="Node2D" parent="." unique_id=297042389]
+position = Vector2(640, 528)
+script = ExtResource("10_mut7h")
+
+[node name="Stage Slots" type="CanvasGroup" parent="Stage Select" unique_id=911079800]
+position = Vector2(-640, -528)
+
+[node name="Stage" parent="Stage Select/Stage Slots" unique_id=1164059406 instance=ExtResource("10_b30aj")]
+position = Vector2(250, 530)
+
+[node name="Stage2" parent="Stage Select/Stage Slots" unique_id=689712229 instance=ExtResource("10_b30aj")]
+position = Vector2(390, 435)
+
+[node name="Stage3" parent="Stage Select/Stage Slots" unique_id=1901552641 instance=ExtResource("10_b30aj")]
+position = Vector2(390, 530)
+
+[node name="Stage4" parent="Stage Select/Stage Slots" unique_id=241528484 instance=ExtResource("10_b30aj")]
+position = Vector2(390, 625)
+
+[node name="Stage5" parent="Stage Select/Stage Slots" unique_id=892403002 instance=ExtResource("10_b30aj")]
+position = Vector2(530, 435)
+
+[node name="Stage6" parent="Stage Select/Stage Slots" unique_id=2076292587 instance=ExtResource("10_b30aj")]
+position = Vector2(530, 530)
+
+[node name="Stage7" parent="Stage Select/Stage Slots" unique_id=913000162 instance=ExtResource("10_b30aj")]
+position = Vector2(530, 625)
+
+[node name="Stage8" parent="Stage Select/Stage Slots" unique_id=1968789607 instance=ExtResource("10_b30aj")]
+position = Vector2(670, 340)
+
+[node name="Stage9" parent="Stage Select/Stage Slots" unique_id=477402214 instance=ExtResource("10_b30aj")]
+position = Vector2(670, 435)
+
+[node name="Stage10" parent="Stage Select/Stage Slots" unique_id=165258375 instance=ExtResource("10_b30aj")]
+position = Vector2(670, 530)
+
+[node name="Stage11" parent="Stage Select/Stage Slots" unique_id=1319835000 instance=ExtResource("10_b30aj")]
+position = Vector2(670, 625)
+
+[node name="Stage12" parent="Stage Select/Stage Slots" unique_id=1703826481 instance=ExtResource("10_b30aj")]
+position = Vector2(670, 720)
+
+[node name="Stage13" parent="Stage Select/Stage Slots" unique_id=1401919874 instance=ExtResource("10_b30aj")]
+position = Vector2(810, 340)
+
+[node name="Stage14" parent="Stage Select/Stage Slots" unique_id=864091373 instance=ExtResource("10_b30aj")]
+position = Vector2(810, 435)
+
+[node name="Stage15" parent="Stage Select/Stage Slots" unique_id=1446047567 instance=ExtResource("10_b30aj")]
+position = Vector2(810, 530)
+
+[node name="Stage16" parent="Stage Select/Stage Slots" unique_id=1228684701 instance=ExtResource("10_b30aj")]
+position = Vector2(810, 625)
+
+[node name="Stage17" parent="Stage Select/Stage Slots" unique_id=377641104 instance=ExtResource("10_b30aj")]
+position = Vector2(810, 720)
+
+[node name="Stage18" parent="Stage Select/Stage Slots" unique_id=1120529193 instance=ExtResource("10_b30aj")]
+position = Vector2(950, 340)
+
+[node name="Stage19" parent="Stage Select/Stage Slots" unique_id=1983135887 instance=ExtResource("10_b30aj")]
+position = Vector2(950, 435)
+
+[node name="Stage20" parent="Stage Select/Stage Slots" unique_id=947314801 instance=ExtResource("10_b30aj")]
+position = Vector2(950, 530)
+
+[node name="Stage21" parent="Stage Select/Stage Slots" unique_id=512115403 instance=ExtResource("10_b30aj")]
+position = Vector2(950, 625)
+
+[node name="Stage22" parent="Stage Select/Stage Slots" unique_id=227359409 instance=ExtResource("10_b30aj")]
+position = Vector2(950, 720)
+
+[node name="Boss Slots" type="CanvasGroup" parent="Stage Select" unique_id=230136284]
+position = Vector2(-640, -528)
+
+[node name="Boss" parent="Stage Select/Boss Slots" unique_id=911316829 instance=ExtResource("11_1tocb")]
+position = Vector2(1058, 318)
+
+[node name="Boss2" parent="Stage Select/Boss Slots" unique_id=1081282555 instance=ExtResource("11_1tocb")]
+position = Vector2(1058, 365)
+
+[node name="Boss3" parent="Stage Select/Boss Slots" unique_id=687802795 instance=ExtResource("11_1tocb")]
+position = Vector2(1058, 412)
+
+[node name="Boss4" parent="Stage Select/Boss Slots" unique_id=25971996 instance=ExtResource("11_1tocb")]
+position = Vector2(1058, 459)
+
+[node name="Boss5" parent="Stage Select/Boss Slots" unique_id=687711205 instance=ExtResource("11_1tocb")]
+position = Vector2(1058, 506)
+
+[node name="Boss6" parent="Stage Select/Boss Slots" unique_id=656440980 instance=ExtResource("11_1tocb")]
+position = Vector2(1058, 553)
+
+[node name="Boss7" parent="Stage Select/Boss Slots" unique_id=1420098463 instance=ExtResource("11_1tocb")]
+position = Vector2(1058, 600)
+
+[node name="Boss8" parent="Stage Select/Boss Slots" unique_id=683216402 instance=ExtResource("11_1tocb")]
+position = Vector2(1058, 647)
+
+[node name="Boss9" parent="Stage Select/Boss Slots" unique_id=449557893 instance=ExtResource("11_1tocb")]
+position = Vector2(1058, 694)
+
+[node name="Boss10" parent="Stage Select/Boss Slots" unique_id=2001735636 instance=ExtResource("11_1tocb")]
+position = Vector2(1058, 741)
+
+[node name="Sub Menu" parent="." unique_id=1723787588 instance=ExtResource("12_judhg")]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+
+[node name="Route" type="Node2D" parent="." unique_id=1839681723]
+position = Vector2(211, 161)
+script = ExtResource("13_pj64n")
+
+[node name="Route Name" type="RichTextLabel" parent="Route" unique_id=128819121]
+offset_left = 35.0
+offset_right = 828.0
+offset_bottom = 34.0
+scale = Vector2(0.81, 1)
+theme = ExtResource("8_qvmcu")
+text = "#000: Route Name Here"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Total Routes" type="RichTextLabel" parent="Route" unique_id=1201530494]
+offset_left = 162.00003
+offset_right = 955.0
+offset_bottom = 34.0
+scale = Vector2(0.81, 1)
+theme = ExtResource("8_qvmcu")
+text = "000/326"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 2
+
+[node name="Percentage" type="RichTextLabel" parent="Route" unique_id=1874538297]
+offset_left = 824.0
+offset_right = 1096.8394
+offset_bottom = 34.0
+scale = Vector2(0.81, 1)
+theme = ExtResource("8_qvmcu")
+text = "000/326"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Route Clear" type="Sprite2D" parent="Route" unique_id=1469515830]
+position = Vector2(-5, 17)
+texture = ExtResource("4_b4u68")
+region_enabled = true
+region_rect = Rect2(84, 436, 53, 53)
+
+[node name="All Clear" type="Sprite2D" parent="Route" unique_id=1350926562]
+position = Vector2(846, 17)
+texture = ExtResource("4_b4u68")
+region_enabled = true
+region_rect = Rect2(84, 436, 53, 53)
+
+[node name="Header" type="Node2D" parent="." unique_id=1636450373]
+modulate = Color(1, 1, 1, 0.5019608)
+position = Vector2(0, 9)
+script = ExtResource("14_ltmcj")
+
+[node name="Header 1" type="RichTextLabel" parent="Header" unique_id=101245300]
+offset_right = 1130.0
+offset_bottom = 50.0
+scale = Vector2(0.81, 1)
+theme = ExtResource("8_qvmcu")
+text = "Shadow the Hedgehog Route Generator - A Hudgyn Sasdarl Project"
+
+[node name="Header 2" type="RichTextLabel" parent="Header" unique_id=708264318]
+offset_left = 979.99994
+offset_right = 2110.0
+offset_bottom = 50.0
+scale = Vector2(0.81, 1)
+theme = ExtResource("8_qvmcu")
+text = "Shadow the Hedgehog Route Generator - A Hudgyn Sasdarl Project"
+
+[node name="Header 3" type="RichTextLabel" parent="Header" unique_id=1673272667]
+offset_left = 1960.0
+offset_right = 3090.0
+offset_bottom = 50.0
+scale = Vector2(0.81, 1)
+theme = ExtResource("8_qvmcu")
+text = "Shadow the Hedgehog Route Generator - A Hudgyn Sasdarl Project"
+
+[node name="Header 2" type="Node2D" parent="." unique_id=929605495]
+modulate = Color(1, 1, 1, 0.5019608)
+position = Vector2(0, 1006)
+script = ExtResource("14_ltmcj")
+
+[node name="Header 1" type="RichTextLabel" parent="Header 2" unique_id=411481260]
+offset_left = -980.0
+offset_right = 150.0
+offset_bottom = 50.0
+scale = Vector2(0.81, 1)
+theme = ExtResource("8_qvmcu")
+text = "Shadow the Hedgehog Route Generator - A Hudgyn Sasdarl Project"
+
+[node name="Header 2" type="RichTextLabel" parent="Header 2" unique_id=1962749527]
+offset_left = -6.1035156e-05
+offset_right = 1130.0
+offset_bottom = 50.0
+scale = Vector2(0.81, 1)
+theme = ExtResource("8_qvmcu")
+text = "Shadow the Hedgehog Route Generator - A Hudgyn Sasdarl Project"
+
+[node name="Header 3" type="RichTextLabel" parent="Header 2" unique_id=1079759436]
+offset_left = 980.0
+offset_right = 2110.0
+offset_bottom = 50.0
+scale = Vector2(0.81, 1)
+theme = ExtResource("8_qvmcu")
+text = "Shadow the Hedgehog Route Generator - A Hudgyn Sasdarl Project"
+
+[connection signal="mouse_entered" from="Audio/Shield" to="Audio/Shield" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Audio/Shield" to="Audio/Shield" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Audio/BGM Toggle/Panel" to="Audio/BGM Toggle" method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="Audio/BGM Toggle/Panel" to="Audio/BGM Toggle" method="_on_panel_mouse_exited"]
+[connection signal="mouse_entered" from="Audio/SFX Toggle/Panel" to="Audio/SFX Toggle" method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="Audio/SFX Toggle/Panel" to="Audio/SFX Toggle" method="_on_panel_mouse_exited"]

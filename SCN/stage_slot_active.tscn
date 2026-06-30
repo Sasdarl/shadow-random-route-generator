@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://wwtiiovogt5n"]
+
+[ext_resource type="Texture2D" uid="uid://c7b0vx17kgocg" path="res://IMG/active.png" id="1_tkorv"]
+
+[node name="stage slot23" type="Sprite2D" unique_id=1861758671]
+scale = Vector2(2.05, 2.25)
+texture = ExtResource("1_tkorv")
+region_enabled = true
+region_rect = Rect2(140, 54, 68, 42)

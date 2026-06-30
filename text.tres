@@ -1,0 +1,17 @@
+[gd_resource type="Theme" format=3 uid="uid://cueyy5xonqdjj"]
+
+[sub_resource type="SystemFont" id="SystemFont_rj586"]
+font_names = PackedStringArray("FreeSans", "Times New Roman", "Arial")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_d21ai"]
+fallbacks = Array[Font]([SubResource("SystemFont_rj586")])
+font_names = PackedStringArray("MS Gothic")
+hinting = 2
+subpixel_positioning = 0
+keep_rounding_remainders = false
+multichannel_signed_distance_field = true
+
+[resource]
+default_font = SubResource("SystemFont_d21ai")
+default_font_size = 36

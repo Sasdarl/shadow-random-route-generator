@@ -1,0 +1,224 @@
+[gd_scene format=3 uid="uid://bmf2jcqqgw7xd"]
+
+[ext_resource type="Script" uid="uid://bori5ftmv7kw2" path="res://SCR/sub_menu.gd" id="1_alfju"]
+[ext_resource type="Texture2D" uid="uid://cbdo3sv7an3ia" path="res://IMG/tex1_512x512_c1a8be3ee037dd86_ddc73227bc7a508f_9.png" id="2_pnq7p"]
+[ext_resource type="Texture2D" uid="uid://chbayx0ldqtt3" path="res://IMG/bosses.png" id="3_2qkhq"]
+[ext_resource type="Texture2D" uid="uid://celn12vev8cas" path="res://IMG/stages.png" id="4_hqhc8"]
+
+[sub_resource type="SystemFont" id="SystemFont_rj586"]
+font_names = PackedStringArray("FreeSans", "Times New Roman", "Arial")
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_d21ai"]
+fallbacks = Array[Font]([SubResource("SystemFont_rj586")])
+font_names = PackedStringArray("MS Gothic")
+hinting = 2
+subpixel_positioning = 0
+keep_rounding_remainders = false
+multichannel_signed_distance_field = true
+
+[sub_resource type="Theme" id="Theme_4d7sh"]
+default_font = SubResource("SystemFont_d21ai")
+default_font_size = 36
+
+[node name="Sub Menu" type="Node2D" unique_id=1723787588]
+script = ExtResource("1_alfju")
+
+[node name="Under Background" type="Sprite2D" parent="." unique_id=830260066]
+z_index = -5
+position = Vector2(300, 666.99994)
+scale = Vector2(2, 2.19774)
+texture = ExtResource("2_pnq7p")
+centered = false
+region_enabled = true
+region_rect = Rect2(22, 208, 490, 177)
+
+[node name="Under Background 2" type="Sprite2D" parent="." unique_id=1291475182]
+z_index = -5
+position = Vector2(181, 646.99994)
+scale = Vector2(2, 2.2)
+texture = ExtResource("2_pnq7p")
+centered = false
+region_enabled = true
+region_rect = Rect2(442, 7, 60, 186)
+
+[node name="Sub Name" type="RichTextLabel" parent="." unique_id=551787465]
+offset_left = 100.0
+offset_top = 653.0
+offset_right = 528.0
+offset_bottom = 687.0
+scale = Vector2(0.80999994, 0.98999995)
+theme = SubResource("Theme_4d7sh")
+text = "STAGE NAME"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Sub Boss Location" type="RichTextLabel" parent="." unique_id=606051886]
+offset_left = 100.0
+offset_top = 953.0
+offset_right = 528.0
+offset_bottom = 987.0
+scale = Vector2(0.81, 1)
+theme = SubResource("Theme_4d7sh")
+text = "WESTOPOLIS"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Sub Boss Name" type="RichTextLabel" parent="." unique_id=526284745]
+z_index = 2
+offset_left = 402.99997
+offset_top = 923.0
+offset_right = 839.0
+offset_bottom = 957.0
+scale = Vector2(0.81, 1)
+theme = SubResource("Theme_4d7sh")
+text = "BOSS NAME"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Sub Boss Photo" type="Sprite2D" parent="." unique_id=189382921]
+position = Vector2(301.00006, 938.99994)
+rotation = 0.27925268
+scale = Vector2(1.9, 2.15)
+texture = ExtResource("3_2qkhq")
+hframes = 5
+vframes = 4
+region_rect = Rect2(0, 0, 440, 276)
+
+[node name="Sub Photo" type="Sprite2D" parent="." unique_id=735617274]
+position = Vector2(200.99995, 815)
+rotation = -0.20943952
+scale = Vector2(2.6, 2.85)
+texture = ExtResource("4_hqhc8")
+hframes = 5
+vframes = 7
+
+[node name="Stats" type="Node2D" parent="." unique_id=1405423134]
+position = Vector2(323, 687)
+
+[node name="Dark" type="Node2D" parent="Stats" unique_id=128231592]
+
+[node name="Label" type="RichTextLabel" parent="Stats/Dark" unique_id=1261032987]
+offset_left = 222.0
+offset_top = 21.0
+offset_right = 401.01227
+offset_bottom = 55.0
+scale = Vector2(0.80999994, 0.98999995)
+theme = SubResource("Theme_4d7sh")
+text = "DARK"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Cleared" type="RichTextLabel" parent="Stats/Dark" unique_id=942068807]
+offset_left = 222.0
+offset_top = 76.0
+offset_right = 401.01227
+offset_bottom = 110.0
+scale = Vector2(0.80999994, 0.98999995)
+theme = SubResource("Theme_4d7sh")
+text = "DARK"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Percentage" type="RichTextLabel" parent="Stats/Dark" unique_id=1664220490]
+offset_left = 222.0
+offset_top = 131.0
+offset_right = 401.01227
+offset_bottom = 165.0
+scale = Vector2(0.80999994, 0.98999995)
+theme = SubResource("Theme_4d7sh")
+text = "DARK"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Normal" type="Node2D" parent="Stats" unique_id=1435963603]
+position = Vector2(0, 55)
+
+[node name="Label" type="RichTextLabel" parent="Stats/Normal" unique_id=1828668482]
+offset_left = 443.0
+offset_top = -34.0
+offset_right = 622.01227
+scale = Vector2(0.80999994, 0.98999995)
+theme = SubResource("Theme_4d7sh")
+text = "NORMAL"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Cleared" type="RichTextLabel" parent="Stats/Normal" unique_id=485027385]
+offset_left = 443.0
+offset_top = 21.0
+offset_right = 622.01227
+offset_bottom = 55.0
+scale = Vector2(0.80999994, 0.98999995)
+theme = SubResource("Theme_4d7sh")
+text = "NORMAL"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Percentage" type="RichTextLabel" parent="Stats/Normal" unique_id=182283816]
+offset_left = 443.0
+offset_top = 76.0
+offset_right = 622.01227
+offset_bottom = 110.0
+scale = Vector2(0.80999994, 0.98999995)
+theme = SubResource("Theme_4d7sh")
+text = "NORMAL"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Hero" type="Node2D" parent="Stats" unique_id=296084061]
+position = Vector2(0, 110)
+
+[node name="Label" type="RichTextLabel" parent="Stats/Hero" unique_id=489008473]
+offset_left = 666.00006
+offset_top = -89.0
+offset_right = 845.0124
+offset_bottom = -55.0
+scale = Vector2(0.80999994, 0.98999995)
+theme = SubResource("Theme_4d7sh")
+text = "HERO"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Cleared" type="RichTextLabel" parent="Stats/Hero" unique_id=1391598733]
+offset_left = 666.00006
+offset_top = -34.0
+offset_right = 845.0124
+scale = Vector2(0.80999994, 0.98999995)
+theme = SubResource("Theme_4d7sh")
+text = "HERO"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Percentage" type="RichTextLabel" parent="Stats/Hero" unique_id=33750135]
+offset_left = 666.00006
+offset_top = 21.0
+offset_right = 845.0124
+offset_bottom = 55.0
+scale = Vector2(0.80999994, 0.98999995)
+theme = SubResource("Theme_4d7sh")
+text = "HERO"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Cleared Label" type="RichTextLabel" parent="Stats" unique_id=1761055879]
+offset_left = -1.0
+offset_top = 76.0
+offset_right = 178.01227
+offset_bottom = 110.0
+scale = Vector2(0.80999994, 0.98999995)
+theme = SubResource("Theme_4d7sh")
+text = "CLEARED"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Percentage Label" type="RichTextLabel" parent="Stats" unique_id=1840670588]
+offset_left = -1.0
+offset_top = 131.0
+offset_right = 228.62958
+offset_bottom = 165.0
+scale = Vector2(0.80999994, 0.98999995)
+theme = SubResource("Theme_4d7sh")
+text = "PERCENTAGE"
+scroll_active = false
+autowrap_mode = 0

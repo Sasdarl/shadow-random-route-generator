@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bbw0d2o822px6"]
+
+[ext_resource type="Script" uid="uid://fa80oj7teeka" path="res://SCR/boss_slot.gd" id="1_jvjve"]
+[ext_resource type="Texture2D" uid="uid://l56s3ohrl5dn" path="res://IMG/tex1_256x128_73962f92710e9e9e_402bc18ce903b7a9_9.png" id="2_u2ml4"]
+[ext_resource type="Texture2D" uid="uid://celn12vev8cas" path="res://IMG/stages.png" id="3_jvjve"]
+[ext_resource type="Texture2D" uid="uid://cbdo3sv7an3ia" path="res://IMG/tex1_512x512_c1a8be3ee037dd86_ddc73227bc7a508f_9.png" id="4_u2ml4"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_834ms"]
+load_path = "res://.godot/imported/tex1_256x128_73962f92710e9e9e_402bc18ce903b7a9_9.png-e557b215a98da58415f28a755ba2e9e0.ctex"
+
+[node name="Boss" type="Node2D" unique_id=1164059406]
+script = ExtResource("1_jvjve")
+
+[node name="Sprite ON" type="Sprite2D" parent="." unique_id=2018011480]
+visible = false
+scale = Vector2(1.99, 2.2)
+texture = ExtResource("2_u2ml4")
+region_enabled = true
+region_rect = Rect2(196, 1, 25, 24)
+
+[node name="Sprite OFF" type="Sprite2D" parent="." unique_id=1544938855]
+scale = Vector2(1.99, 2.2)
+texture = SubResource("CompressedTexture2D_834ms")
+vframes = 4
+region_enabled = true
+region_rect = Rect2(222, 2, 26, 87)
+
+[node name="Panel" type="Panel" parent="." unique_id=1932457138]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -7.666666
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.9999998, 1.9999999)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Photo" type="Sprite2D" parent="." unique_id=1303985583]
+position = Vector2(91.00001, 0)
+scale = Vector2(1.1, 1.2)
+texture = ExtResource("3_jvjve")
+hframes = 5
+vframes = 7
+frame = 22
+region_rect = Rect2(0, 0, 440, 345)
+
+[node name="Clear Star" type="Sprite2D" parent="." unique_id=1553981853]
+z_index = 4
+position = Vector2(-2, -3)
+texture = ExtResource("4_u2ml4")
+region_enabled = true
+region_rect = Rect2(83, 435, 55, 54)
+
+[connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="Panel" to="." method="_on_panel_mouse_exited"]
